@@ -10,6 +10,6 @@ jobs:
       - name: Add new issues to project board
         uses: matmar10/add-issues-to-project@master
         with:
-          gitub_token: ${{ secrets.GITHUB_TOKEN_2 }}
+          gitub_token: ${{ secrets.TOKEN }}
           github_project_title: my-project
           github_org: steph-crown

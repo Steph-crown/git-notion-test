@@ -1,15 +1,16 @@
-name: Issue Automation
 on:
   issues:
-    types: [opened, edited, reopened]
+    types:
+      - [opened, edited, reopened, deleted, closed, assigned, unassigned]
+
 jobs:
-  add-to-project-board:
-    name: Add issue to project board
+  add-to-project:
+    name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - name: Add new issues to project board
-        uses: matmar10/add-issues-to-project@master
+      - uses: actions/add-to-project@0.4.0
         with:
-          gitub_token: ${{ secrets.TOKEN }}
-          github_project_title: my-project
-          github_org: steph-crown
+          # You can target a repository in a different organization
+          # to the issue
+          project-url: https://github.com/orgs/story-learn/projects/1
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
